@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+      <h2>Registro de Usuario</h2>
+    </div>
+  </div>
+
+  <form [formGroup]="formG">
+    <div class="row justify-content-center">
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+        <mat-form-field class="w-100">
+          <input matInput id="name" name="name" placeholder="Nombre" formControlName="name" required pattern="[a-zA-Z]*"
+            maxlength="20" appOnlyChar onpaste="return false">
+          <mat-error
+            *ngIf="formG.controls.name.errors && formG.controls.name.errors.required && (formG.controls.name.dirty || formG.controls.name.touched)">
+            Campo requerido</mat-error>
+          <mat-error
+            *ngIf="formG.controls.name.errors && formG.controls.name.errors.pattern && (formG.controls.name.dirty || formG.controls.name.touched)">
+            No se pueden ingresar números</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+        <mat-form-field class="w-100">
+          <input matInput id="lastName" name="lastName" placeholder="Apellido" formControlName="lastName" required pattern="[a-zA-Z]*">
+          <mat-error *ngIf="formG.controls.lastName.errors && formG.controls.lastName.errors.required && (formG.controls.lastName.dirty || formG.controls.lastName.touched)">Campo requerido</mat-error>
+          <mat-error *ngIf="formG.controls.lastName.errors && formG.controls.lastName.errors.pattern && (formG.controls.lastName.dirty || formG.controls.lastName.touched)">No se pueden ingresar números</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+        <mat-form-field class="w-100">
+          <input matInput id="username" name="username" placeholder="Usuario" formControlName="username" required>
+          <mat-error *ngIf="formG.controls.username.errors && formG.controls.username.errors.required && (formG.controls.username.dirty || formG.controls.username.touched)">Campo requerido</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+        <mat-form-field class="w-100">
+          <input matInput id="pws" name="pws" placeholder="Contraseña" formControlName="pws" required>
+          <mat-error *ngIf="formG.controls.pws.errors && formG.controls.pws.errors.required && (formG.controls.pws.dirty || formG.controls.pws.touched)">Campo requerido</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+        <mat-form-field class="w-100">
+          <mat-select formControlName="country">
+            <mat-option *ngFor="let country of countryList" [value]="country.id">
+              {{ country.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+        <button mat-button mat-raised-button color="secondary" class="w-100" routerLink="/login">Volver</button>
+      </div>
+
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+        <button mat-button mat-raised-button color="primary" class="w-100" [disabled]="!formG.valid" (click)="saveUser()">Guardar</button>
+      </div>
+    </div>
+  </form>
+</div>

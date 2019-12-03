@@ -1,0 +1,26 @@
+<!-- <p>calificacion works!</p>
+<p>{{ message }}</p>
+<button (click)="sendMessage()">Enviar Mensaje</button> -->
+
+<ng-container *ngIf="studentId">
+  <h2>Calificaciones {{ studentName }}</h2>
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="course">
+      <mat-header-cell *matHeaderCellDef> Curso </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.course}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="score">
+      <mat-header-cell *matHeaderCellDef> Calificación </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.score}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</ng-container>

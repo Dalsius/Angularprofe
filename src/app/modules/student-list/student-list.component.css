@@ -1,0 +1,9 @@
+.action {
+  color: #01b5ad;;
+  background-color: transparent;
+  border: none;
+}
+
+.action:hover {
+  text-decoration: underline;
+}

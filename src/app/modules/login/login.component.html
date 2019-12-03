@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+      <h2>Ingrese sus Datos</h2>
+    </div>
+  </div>
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="row justify-content-center">
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+        <mat-form-field class="w-100">
+          <input matInput id="username" name="username" placeholder="Usuario" [(ngModel)]="user.username">
+        </mat-form-field>
+      </div>
+    </div>
+    
+    
+    <div class="row justify-content-center">
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+        <mat-form-field class="w-100">
+          <input matInput type="password" id="control1" name="pws" placeholder="Contraseña" [(ngModel)]="user.pws">
+        </mat-form-field>
+      </div>
+    </div>
+
+    
+    <div class="row justify-content-center">
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+        <!-- <button mat-button color="primary" (click)="setUser()">Ingresar</button> -->
+        <!-- <button mat-button color="primary" (click)="getUser()">Ingresar</button> -->
+        <button mat-button mat-raised-button color="primary" class="w-100">Ingresar</button>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mt-2">
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+        <button mat-button type="button" mat-raised-button color="primary" routerLink="/register" class="w-100">Registrarse</button>
+      </div>
+    </div>
+  </form>
+</div>
